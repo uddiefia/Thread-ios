@@ -15,6 +15,7 @@ struct LoginView: View {
                 
                 VStack{
                     TextField("Enter your email", text: $email)
+                        .autocapitalization(.none)
                         .modifier(TextFieldModifier())
                     
                     SecureField("Enter your password", text: $password)
@@ -52,7 +53,8 @@ struct LoginView: View {
                 Divider()
                 
                 NavigationLink{
-                    Text("Registration view")
+                    RegistrationView()
+                        .navigationBarBackButtonHidden(true)
                 }label:{
                     HStack(spacing: 3){
                         Text("Don't have an account?")
