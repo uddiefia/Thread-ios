@@ -10,10 +10,26 @@ struct FeedView: View {
                     }
                 }
             }
+            .refreshable {
+                print("refresh")
+            }
+            .navigationTitle("Threads")
+            .navigationBarTitleDisplayMode(.inline).fontWeight(.semibold)
+        }.toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button{
+                    
+                }label: {
+                    Image(systemName: "arrow.counterclockwise")
+                        .foregroundColor(.black)
+                }
+            }
         }
     }
 }
 
 #Preview {
-    FeedView()
+    NavigationStack{
+        FeedView()
+    }
 }
