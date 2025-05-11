@@ -65,7 +65,7 @@ struct LoginView: View {
                     HStack(spacing: 3){
                         Text("Don't have an account?")
                         
-                        Text("Sign up")
+                        Text("Sign Up")
                             .fontWeight(.semibold)
                         
                     }.foregroundColor(.black)
