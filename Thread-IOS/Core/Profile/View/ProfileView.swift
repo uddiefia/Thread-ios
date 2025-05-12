@@ -4,6 +4,10 @@ struct ProfileView: View {
     @State private var selectedFilter: ProfileThreadSort = .threads
     @Namespace var animation
     
+    private var filterBarWidth: CGFloat {
+        let count = CGFloat(ProfileThreadSort.allCases.count)
+        return UIScreen.main.bounds.width / count - 16
+    }
     var body: some View {
         ScrollView{
             //           bio and stats
@@ -58,7 +62,7 @@ struct ProfileView: View {
                                 if selectedFilter == filter {
                                     Rectangle()
                                         .foregroundColor(.black)
-                                        .frame(width: 180, height: 1)
+                                        .frame(width: filterBarWidth, height: 1)
                                         .matchedGeometryEffect(id: "item", in: animation
                                         )
                                 }else{
@@ -73,7 +77,12 @@ struct ProfileView: View {
                             }
                         }
                     }
-                }
+                    LazyVStack{
+                        ForEach(0 ... 10 , id:\.self){ thread in
+                            ThreadCell()
+                        }
+                    }
+                }.padding(.vertical, 8)
                 
                 
                 
