@@ -1,10 +1,3 @@
-//
-//  ContentView.swift
-//  Thread-IOS
-//
-//  Created by udara on 2025-05-10.
-//
-
 import SwiftUI
 
 struct ContentView: View {
