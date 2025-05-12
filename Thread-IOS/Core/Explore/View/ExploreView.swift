@@ -13,8 +13,7 @@ struct ExploreView: View {
                         VStack {
                             HStack{
                                 
-                                Image("ud").resizable().scaledToFit().frame(width: 50, height: 50)
-                                    .clipShape(Circle())
+                                CircularProfileImageView()
                                 
                                 VStack(alignment: .leading, spacing: 4){
                                     Text("udara_damitha")
