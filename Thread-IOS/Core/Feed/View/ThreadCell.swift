@@ -4,8 +4,8 @@ struct ThreadCell: View {
     var body: some View {
         VStack{
             HStack(alignment: .top,spacing: 12){
-                Image("ud").resizable().scaledToFit().frame(width: 50, height: 50)
-                    .clipShape(Circle())
+               
+                CircularProfileImageView()
                 
                 VStack(alignment: .leading, spacing: 4){
                     HStack{
