@@ -1,6 +1,6 @@
 import Foundation
 
-enum ProfileThreadSort:CaseIterable {
+enum ProfileThreadSort:Int, CaseIterable, Identifiable {
     case threads
     case replies
     
@@ -9,5 +9,8 @@ enum ProfileThreadSort:CaseIterable {
         case.threads: return "Threads"
         case.replies: return "Replies"
         }
+    }
+    var id: Int {
+        return self.rawValue
     }
 }
