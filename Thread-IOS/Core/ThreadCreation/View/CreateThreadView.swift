@@ -3,6 +3,7 @@ import SwiftUI
 struct CreateThreadView: View {
     
     @State private var caption: String = ""
+    @Environment(\.dismiss) var dismiss
     
     var body: some View {
         NavigationStack{
@@ -17,13 +18,15 @@ struct CreateThreadView: View {
                         
                     }.font(.footnote)
                     Spacer()
-                    Button{
-                        
-                    }label: {
-                        Image(systemName: "xmark")
-                            .resizable()
-                            .frame(width: 12, height: 12)
-                            .foregroundColor(.gray)
+                    if !caption.isEmpty {
+                        Button{
+                            caption=""
+                        }label: {
+                            Image(systemName: "xmark")
+                                .resizable()
+                                .frame(width: 12, height: 12)
+                                .foregroundColor(.gray)
+                        }
                     }
                 }
                 
@@ -35,7 +38,7 @@ struct CreateThreadView: View {
                 .toolbar {
                     ToolbarItem(placement: .navigationBarLeading) {
                         Button("Cancel"){
-                            
+                            dismiss()
                         }.font(.subheadline)
                             .foregroundColor(.black)
                     }
@@ -43,7 +46,9 @@ struct CreateThreadView: View {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button("Post"){
                             
-                        }.font(.subheadline)
+                        }.opacity(caption.isEmpty ? 0.5 : 1.0)
+                            .disabled(caption.isEmpty)
+                            .font(.subheadline)
                             .fontWeight(.semibold)
                             .foregroundColor(.black)
                     }
