@@ -38,9 +38,9 @@ struct ThreadsTabView: View {
             }.onAppear{selectedTab = 4}
                 .tag(4)
         }
-        .onChange(of: selectedTab, perform: { newValue in
-            showCreateThreadView = selectedTab == 2
-        })
+        .onChange(of: selectedTab) { oldValue, newValue in
+            showCreateThreadView = newValue == 2
+        }
         .sheet(isPresented: $showCreateThreadView, onDismiss: {
             selectedTab = 0
         }, content: {
