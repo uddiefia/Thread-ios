@@ -62,4 +62,4 @@ fastlane/screenshots/**/*.png
 fastlane/test_output
 
 # Ignore Firebase config
-GoogleService-Info.plist
+Thread-IOS/GoogleService-Info.plist
